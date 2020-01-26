@@ -1,4 +1,4 @@
-# server
+# Join The Table server
 
 > A realtime REST API server for Join The Table 
 
