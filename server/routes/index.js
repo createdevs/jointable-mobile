@@ -1,7 +1,7 @@
-import session from "./event";
+import event from "./event";
 import user from "./user";
 
 export default {
-  session,
+  event,
   user,
 };
