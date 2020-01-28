@@ -1,7 +1,7 @@
 # Join The Table
 A mobile App to help you schedule game night with your friends!
 
-
+** THIS APP IS CURRENTLY IN DEVELOPMENT **
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
