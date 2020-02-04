@@ -2,7 +2,7 @@
 
 #### **Did you find a bug?**
 
-* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead  [email](email:hello@ambermjones.dev). After the initial reply to your report, I will endeavor to keep you informed of the progress being made towards a fix and full announcement. 
+* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead  [email](mailto:hello@ambermjones.dev). After the initial reply to your report, I will endeavor to keep you informed of the progress being made towards a fix and full announcement. 
 
 * **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/amberjones/JoinTheTable-mobile/issues).
 
