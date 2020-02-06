@@ -1,0 +1,17 @@
+As a user, i can log in via third party authenication
+
+As a user looking for a game to join:
+  I can view open games near me (seats avaliable) 
+  I can filter game events by radius, past games and sort by soonest or nearest, 
+
+  - I will see events with: game title, game image, seats avaliable, Host name, Host reputation??, location zip, Location Address: locked
+  - I can join the game if a seat is open
+    - i will see the avalibe seat count lower
+    - confirmation that I am joining this table
+        - Message the host option will appear
+    - location will be unlocked 2 hours before game starts
+    - seats are locked in 30 minutes before game start
+
+    ADVANCED FEATURES
+    - Users will get push notiiations or email alerts on upcoming games and location unlocked
+

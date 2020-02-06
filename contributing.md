@@ -2,7 +2,7 @@
 
 #### **Did you find a bug?**
 
-* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead  [email](email:hello@ambermjones.dev). After the initial reply to your report, I will endeavor to keep you informed of the progress being made towards a fix and full announcement. 
+* **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead  [email](mailto:hello@ambermjones.dev). After the initial reply to your report, I will endeavor to keep you informed of the progress being made towards a fix and full announcement. 
 
 * **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/amberjones/JoinTheTable-mobile/issues).
 
@@ -30,10 +30,10 @@ Awesome!
 
 #### **Do you want to contribute to the Join the Table codebase?**
 
+This app is worked on in my spare time. I encourage you to pitch in and join the table ..er effort!
+
 * Consider the people who will read your code, and make it look nice for them.
 
-
-This app is worked on in my spare time. I encourage you to pitch in and join the table ..er effort!
 
 Thanks! :heart: :heart: :heart:
 
