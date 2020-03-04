@@ -1,4 +1,4 @@
-import * as WebBrowser from 'expo-web-browser';
+mport * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
@@ -19,16 +19,14 @@ export default function HomeScreen() {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-         
         </View>
 
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>JOIN THE TABLE</Text>
 
           <Text style={styles.getStartedText}>
-            We're going to schedule some game nights real soon
+            Here is your collection
           </Text>
         </View>
       </ScrollView>
@@ -37,10 +35,8 @@ export default function HomeScreen() {
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
-  title: 'Home'
+  title: 'Collection',
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -117,16 +113,5 @@ const styles = StyleSheet.create({
   },
   navigationFilename: {
     marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });
