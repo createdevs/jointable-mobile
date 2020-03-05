@@ -1,37 +1,61 @@
-mport * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import * as WebBrowser from 'expo-web-browser';
+import React, { Component } from 'react';
 import {
-  Image,
+  ActivityIndicator,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  FlatList,
+
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
-  return (
+class CollectionScreen extends Component() {
+
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true }
+  }
+
+  componentDidMount() {
+    return fetch(`${process.env.MY_ADDRESS}/users/collection/sawtooth`) //eventually replace with ${bbgUsername}
+      .then((games) => 
+        this.setState({
+          isLoading: false,
+          gameCollection: games,
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      )
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{ flex: 1, padding: 20 }}>
+          <ActivityIndicator />
+        </View>
+      )
+    }
+
+    return (
     <View style={styles.container}>
-      <ScrollView
+      <FlatList
+        // data is the source of information for the list
+        data={this.state.gameCollection}
+        // renderItem takes one item from the source and returns a formatted component to render.
+        renderItem={({ game }) => <Text>{game.title}</Text>} //TODO: render a syled component for each game in collection
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-
-          <Text style={styles.getStartedText}>
-            Here is your collection
-          </Text>
-        </View>
-      </ScrollView>
+      </FlatList>
     </View>
-  );
+    );
+  };
 }
 
 HomeScreen.navigationOptions = {
@@ -52,22 +76,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -115,3 +123,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
+
+
+export default CollectionScreen;
