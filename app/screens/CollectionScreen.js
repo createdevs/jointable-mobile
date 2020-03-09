@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect} from 'react';
 import {
   ActivityIndicator,
   Platform,
@@ -14,28 +14,25 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-class CollectionScreen extends Component() {
+export default function CollectionScreen() {
+  const [collection, setCollection] = useState({});
+  const [isLoading, setLoading]= useState(true);
 
-  constructor(props) {
-    super(props);
-    this.state = { isLoading: true }
-  }
+  //this Hook, you tell React that your component needs to do something after render.
+  useEffect(() => {
+    async function fetchCollection() {
+      const collection = await fetch(`${process.env.MY_ADDRESS}/users/collection/sawtooth`); //eventually replace with ${bbgUsername}
+      collection 
+      // once the bbg user collection has been retreived, set the collection object to state. 
+      .then((games) => setCollection(games))
+      .then(() => setLoading(false))
+      .catch((error) => {console.error(error);})
+    }
+    fetchCollection();
+  });
 
-  componentDidMount() {
-    return fetch(`${process.env.MY_ADDRESS}/users/collection/sawtooth`) //eventually replace with ${bbgUsername}
-      .then((games) => 
-        this.setState({
-          isLoading: false,
-          gameCollection: games,
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      )
-  }
-
-  render() {
-    if (this.state.isLoading) {
+    // upon load, while we wait for the bbg fetch request to return, show spinner....
+    if (isLoading) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
           <ActivityIndicator />
@@ -44,23 +41,18 @@ class CollectionScreen extends Component() {
     }
 
     return (
-    <View style={styles.container}>
-      <FlatList
-        // data is the source of information for the list
-        data={this.state.gameCollection}
-        // renderItem takes one item from the source and returns a formatted component to render.
-        renderItem={({ game }) => <Text>{game.title}</Text>} //TODO: render a syled component for each game in collection
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-      </FlatList>
-    </View>
+      <View style={styles.container}>
+        <FlatList
+          // REQUIRED: data is the source of information for the list
+          data={collection}
+          // renderItem takes one item from the source and returns a formatted component to render.
+          renderItem={({ game }) => <Text>{game.title}</Text>} //TODO: render a syled component for each game in collection
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}>
+        </FlatList>
+      </View>
     );
-  };
 }
-
-HomeScreen.navigationOptions = {
-  title: 'Collection',
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -123,6 +115,3 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
-
-
-export default CollectionScreen;
